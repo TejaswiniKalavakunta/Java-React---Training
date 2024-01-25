@@ -1,4 +1,4 @@
-package com.hexaware.dto;
+package com.hexaware.bankapp.dto;
 
 import java.util.List;
 

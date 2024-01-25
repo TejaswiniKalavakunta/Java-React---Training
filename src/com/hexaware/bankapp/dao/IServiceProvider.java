@@ -1,9 +1,9 @@
-package com.hexaware.dao;
+package com.hexaware.bankapp.dao;
 
-import com.hexaware.dto.BankAccount;
-import com.hexaware.myexceptions.AccountNumberInvalidException;
-import com.hexaware.myexceptions.InsufficientFundsException;
-import com.hexaware.myexceptions.NegativeAmountException;
+import com.hexaware.bankapp.dto.BankAccount;
+import com.hexaware.bankapp.myexceptions.AccountNumberInvalidException;
+import com.hexaware.bankapp.myexceptions.InsufficientFundsException;
+import com.hexaware.bankapp.myexceptions.NegativeAmountException;
 
 public interface IServiceProvider {
 

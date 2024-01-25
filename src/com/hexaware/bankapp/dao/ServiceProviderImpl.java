@@ -1,12 +1,13 @@
-package com.hexaware.dao;
+package com.hexaware.bankapp.dao;
 
 import java.util.List;
 
-import com.hexaware.dto.Bank;
-import com.hexaware.dto.BankAccount;
-import com.hexaware.myexceptions.AccountNumberInvalidException;
-import com.hexaware.myexceptions.InsufficientFundsException;
-import com.hexaware.myexceptions.NegativeAmountException;
+
+import com.hexaware.bankapp.dto.Bank;
+import com.hexaware.bankapp.dto.BankAccount;
+import com.hexaware.bankapp.myexceptions.AccountNumberInvalidException;
+import com.hexaware.bankapp.myexceptions.InsufficientFundsException;
+import com.hexaware.bankapp.myexceptions.NegativeAmountException;
 
 public class ServiceProviderImpl implements IServiceProvider {
 

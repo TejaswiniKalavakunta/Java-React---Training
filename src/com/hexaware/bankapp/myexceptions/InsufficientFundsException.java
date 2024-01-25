@@ -1,4 +1,4 @@
-package com.hexaware.myexceptions;
+package com.hexaware.bankapp.myexceptions;
 
 public class InsufficientFundsException extends Exception {
 	

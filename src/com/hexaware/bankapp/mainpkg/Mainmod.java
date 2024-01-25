@@ -1,19 +1,16 @@
-package com.hexaware.mainpkg;
+package com.hexaware.bankapp.mainpkg;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import com.hexaware.dao.IServiceProvider;
-import com.hexaware.dao.ServiceProviderImpl;
-import com.hexaware.dto.Bank;
-import com.hexaware.dto.BankAccount;
-import com.hexaware.myexceptions.AccountNumberInvalidException;
-import com.hexaware.myexceptions.InsufficientFundsException;
-import com.hexaware.myexceptions.NegativeAmountException;
+import com.hexaware.bankapp.dao.*;
+import com.hexaware.bankapp.dto.*;
+import com.hexaware.bankapp.myexceptions.*;
 
 public class Mainmod {
 	private static final Logger logger = Logger.getLogger(Mainmod.class.getName());
