@@ -1,49 +1,50 @@
 package com.hexaware.Strings;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringSearchEngine {
-	private String originalText;
+	private String text;
 
-    public StringSearchEngine(String originalText) {
-        this.originalText = originalText;
+    public StringSearchEngine(String text) {
+        this.text = text;
     }
 
-    public int findOccurrences(String substring) {
-        int count = 0;
-        int index = originalText.indexOf(substring);
-        
-        while (index != -1) {
-            count++;
-            index = originalText.indexOf(substring, index + 1);
+    public List<Integer> findAllOccurrences(String substring) {
+        List<Integer> occurrences = new ArrayList<>();
+        int index = 0;
+        while ((index = text.indexOf(substring, index)) != -1) {
+            occurrences.add(index);
+            index += substring.length();
         }
-
-        return count;
+        return occurrences;
     }
 
-    public String highlightOccurrences(String substring) {
-    	StringBuilder highlightedText = new StringBuilder(originalText);
-        int index = originalText.indexOf(substring);
-
-        while (index != -1) {
-            highlightedText.insert(index, "[");
-            highlightedText.insert(index + substring.length() + 1, "]");
-            index = originalText.indexOf(substring, index + 2 + substring.length());
+    public String highlightMatches(String substring) {
+        StringBuilder highlightedText = new StringBuilder();
+        int lastIndex = 0;
+        for (int occurrence : findAllOccurrences(substring)) {
+            highlightedText.append(text, lastIndex, occurrence);
+            highlightedText.append("<b>");
+            highlightedText.append(substring);
+            highlightedText.append("</b>");
+            lastIndex = occurrence + substring.length();
         }
-
-        return highlightedText.toString();    
+        highlightedText.append(text.substring(lastIndex));
+        return highlightedText.toString();
     }
 
     public static void main(String[] args) {
-        StringSearchEngine searchEngine = new StringSearchEngine("Java is a powerful programming language. Java is widely used.");
-
-        String substring = "Java";
-
-        // Find occurrences
-        int occurrences = searchEngine.findOccurrences(substring);
-        System.out.println("Occurrences of '" + substring + "': " + occurrences);
-
-        // Highlight occurrences
-        String highlightedText = searchEngine.highlightOccurrences(substring);
-        System.out.println("Highlighted Text:\n" + highlightedText);
+        StringSearchEngine engine = new StringSearchEngine("I like Java programming language. Java is not completely object-oriented language.");
+        List<Integer> indices = engine.findAllOccurrences("Java");
+        System.out.println("Indices: " + indices);
+        String highlightedText = engine.highlightMatches("Java");
+        System.out.println("Highlighted text: " + highlightedText);
     }
+	
 
 }
+
+
+
+
